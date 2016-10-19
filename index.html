@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>程序员</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="animate.css">
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html,body,.wrap{
+			width:100%;
+			height:100%;
+		}
+		.wrap{
+			overflow: hidden;
+			background-attachment:fixed;
+			background: url(image/img_03.jpg);
+		}
+		.slideView,.slideView>div{
+			width:100%;
+			height:100%;
+			display: -webkit-box;
+			-webkit-box-orient:vertical;
+			-webkit-box-align:center;
+			-webkit-box-pack:center;
+			position: relative;
+			
+		}
+		.slideView>div *{
+			display: none;
+		}
+		.slideView>.active *{
+			display: block;
+		}
+		.page1{
+			-webkit-box-orient:vertical;
+		}
+		.page1 .page1div{
+			position: relative;
+			width:60%;
+			margin-bottom: 30%;
+		}
+		.page1 .load2{
+			display: block;
+			width:100%;
+		}
+		.page1 .load1{
+			width:100%;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.page1 .glass{
+			display: block;
+			width:35%;
+			margin-top:-38%;
+			position: relative;
+
+		}
+		.page1 .log{
+			display: block;
+			width:30%;
+			margin-top:15%;
+		}
+		.jian{
+			position: absolute;
+			bottom: 5%;
+			display: block;
+			width:10%;
+			left:45%;
+			opacity: 0;
+		}
+		
+		.page2 .page2div{
+			-webkit-box-orient:vertical;
+			width:80%;
+			height:60%;
+			position: relative;
+		}
+		.page2 .page2div>img{
+			position: absolute;
+		}
+		.page2 .page2div .lable1 {
+			left:0;
+			top:8%;
+			display: block;
+			width:28%;
+			-webkit-animation-delay: 0;
+		}
+		.page2 .page2div .lable2 {
+			left:30%;
+			top:-2%;
+			display: block;
+			width:38%;
+			-webkit-animation-delay: 0.1s;
+		}
+		.page2 .page2div .lable3 {
+			left:75%;
+			top:8%;
+			display: block;
+			width:23%;
+			-webkit-animation-delay: 0.2s;
+		}
+		.page2 .page2div .lable4 {
+			left:-4%;
+			top:30%;
+			display: block;
+			width:25%;
+			-webkit-animation-delay: 0.3s;
+		}
+		.page2 .page2div .lable5 {
+			left:26%;
+			top:28%;
+			display: block;
+			width:50%;
+			-webkit-animation-delay: 0.4s;
+		}
+		.page2 .page2div .lable6 {
+			left:80%;
+			top:32%;
+			display: block;
+			width:25%;
+			-webkit-animation-delay: 0.5s;
+		}
+		.page2 .page2div .lable7 {
+			left:5%;
+			top:57%;
+			display: block;
+			width:38%;
+			-webkit-animation-delay: 0.6s;
+		}
+		.page2 .page2div .lable8 {
+			left:45%;
+			top:52%;
+			display: block;
+			width:55%;
+			-webkit-animation-delay: 0.7s;
+		}
+		.page2 .page2div .lable9 {
+			left:15%;
+			top:78%;
+			display: block;
+			width:20%;
+			-webkit-animation-delay: 0.8s;
+		}
+		.page2 .page2div .lable10 {
+			left:40%;
+			top:75%;
+			display: block;
+			width:40%;
+			-webkit-animation-delay: 0.9s
+		}
+		.page2 .page2div .lable11 {
+			left:35%;
+			bottom:0;
+			display: block;
+			width:15%;
+			-webkit-animation-delay: 1s;
+		}
+		.page3{
+			width:100%;
+			height:70%;
+			-webkit-box-orient:vertical;
+		}
+		.page3>div{
+			width: 70%;
+			position: relative;
+		}
+		.page3>div>img{
+			width:100%;
+			height:auto;
+			margin-bottom: 20px
+		}
+		.page4>div{
+			width:75%;
+			position: relative;
+		}
+		.page4>div>img{
+			width:100%;
+		}
+		.page4>.wen2>img{
+			width:60%;
+			margin:30px auto;
+		}
+		.page4>.wen2 .hand{
+			position: absolute;
+			right: 25%;
+			bottom:-25%;
+			display: block;
+			width: 12%;
+		}
+		.audioBox{
+			width: 30px;
+			height: 30px;
+			background-image: url(./image/music.png);
+			background-size: 200%;
+			background-position: right center;
+			z-index: 1000;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
+		.audioBox.stop{
+			background-position: left center;
+		}
+		.logTip{
+			position: absolute;
+			left:0;
+			top:0;
+			width:90%;
+			padding:30% 5% 10% 8%;
+			height: 60%;
+			margin:0 auto;
+			display: none;
+			background: url(image/img_03.jpg);
+		}
+		.logTip>div{
+			width:27%;
+			margin-left: 3%;
+			float: left;
+			margin-bottom: 15%
+		}
+		.logTip>div>img:first-child{
+			width:100%;
+		}
+		.logTip>div>img:nth-child(2){
+			width:70%;
+			display: block;
+			margin:-20px auto;
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="audioBox">
+		<audio src="music.mp3" loop autoplay></audio>
+	</div>
+	<div class="slideView">
+		<div class="page1 active">
+			<div class="page1div">
+				<img src="image/loading.png" class="load1 animated zoomOutDown">
+				<img src="image/loading.png" class="load2 animated fadeInDown">
+			</div>
+			<img src="image/00_02.png" class="glass animated tada infinite" style="-webkit-animation-duration:2s">
+			<img src="image/00_03.png" class="log">
+			<img src="image/intro-arrow.png" class="jian animated flash infinite"  style="-webkit-animation-delay: 2s;-webkit-animation-duration:2s">
+		</div>
+		<div class="page2">
+			<div class="page2div">
+				<img src="image/01_01.png" class="lable1 animated zoomInUp"  />
+				<img src="image/01_02.png" class="lable2 animated zoomInUp"  />
+				<img src="image/01_03.png" class="lable3 animated zoomInUp"  />
+				<img src="image/01_04.png" class="lable4 animated zoomInUp"  />
+				<img src="image/01_05.png" class="lable5 animated zoomInUp"  />
+				<img src="image/01_06.png" class="lable6 animated zoomInUp"  />
+				<img src="image/01_07.png" class="lable7 animated zoomInUp"  />
+				<img src="image/01_08.png" class="lable8 animated zoomInUp"  />
+				<img src="image/01_09.png" class="lable9 animated zoomInUp"  />
+				<img src="image/01_10.png" class="lable10 animated zoomInUp"  />
+				<img src="image/01_11.png" class="lable11 animated zoomInUp"  />
+			</div>
+			<img src="image/intro-arrow.png" class="jian animated flash infinite"  style="-webkit-animation-delay: 2s;-webkit-animation-duration:3s">
+		</div>
+		<div class="page3">
+			<div class="wen1 animated fadeInUp" style="-webkit-animation-delay: 0s;"><img src="image/02_01.png" /></div>
+			<div class="wen2 animated fadeInUp" style="-webkit-animation-delay: 0.5s;"><img src="image/02_02.png" /></div>
+			<div class="wen3 animated fadeInUp" style="-webkit-animation-delay: 1s;"><img src="image/02_03.png" /></div>
+			<img src="image/intro-arrow.png" class="jian animated flash infinite"  style="-webkit-animation-delay: 2s;-webkit-animation-duration:2s">
+		</div>
+		<div class="page4">
+			<div class="wen1 animated zoomIn" ><img src="image/03_01.png" /></div>
+			<div class="wen2" ><img src="image/03_02.png" class="animated pulse infinite btn" /><img class="hand" src="image/end-hand.png"></div>
+			<div class="wen3 animated zoomIn" ><img src="image/03_03.png" /></div>
+		</div>
+	</div>
+	<div class="logTip animated fadeIn">
+		<div>
+			<img src="image/04_01.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_02.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_03.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_04.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_05.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_06.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_07.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_08.png">
+			<img src="image/04_00.png">
+		</div>
+		<div>
+			<img src="image/04_09.png">
+			<img src="image/04_00.png">
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script src="zepto.min.js"></script>
+<script>
+$(function($){
+	$(".wrap").swipeDown(function(){
+		var index=$(".slideView>.active").index();
+		var id=index<=0 ? 0 : index-1;
+		goPage(id);
+	}).swipeUp(function(){
+		var index=$(".slideView>.active").index();
+		var len=$(".slideView>div").length;
+		var id=index>=len-1 ? len-1 : index+1;
+		goPage(id);
+	})
+	function goPage(id){
+		$(".wrap .slideView").animate({
+			translateY:-id*100+"%"
+		},500,"ease",function(){
+			$(".wrap .slideView>div").eq(id).addClass("active").siblings("div").removeClass("active")
+		})
+	}
+	$( ".audioBox" ).tap(function(){
+		var $audio = $(this).find("audio")[0];
+		if( $( this ).hasClass( "stop" ) ){
+			$audio.play()
+			$( this ).removeClass("stop")
+		}else{
+			$( this ).addClass("stop")
+			$audio.pause()
+		}
+	})
+	$(".btn").click(function(){
+		$(".logTip").show()
+	})
+	$(".logTip").click(function(){
+		$(this).hide();
+	})
+})
+</script>
